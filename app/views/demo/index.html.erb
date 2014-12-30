@@ -1,0 +1,35 @@
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+
+    function deleteRow(btn) {
+        var row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+
+<center>
+      <div class="scrollit">
+<table width="50%" border="1" cellspacing="10" cellpadding="10" id="dsTable     overflow-y: auto;
+    overflow-x: hidden;  /* Hide the horizontal scroll */">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Picture</th>
+    </tr>  
+
+    <% @http_party_json['items'].each_with_index do |item,index| %> 
+
+    <tr id='div_<%=index +1%>'>
+        <td><%=index%></td>
+        <td><%=item['title']%></td>
+        <td><%=image_tag src=item['url']%></td>
+        <td><input type="button" value="Delete" onclick="deleteRow(this)"/></td> 
+    </tr>
+    <%end%>
+</table>
+    </div>
+ <input type="button" value="Refresh" onClick="window.location.reload()">
+</center>
+
+

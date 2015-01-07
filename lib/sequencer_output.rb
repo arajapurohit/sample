@@ -3,7 +3,7 @@ class SequencerOutput
   # creates sequences and words file
   def initialize(sequencer, output_directory)
     @sequencer = sequencer
-    @get_sequences_file = File.join(output_directory, 'get_sequences')
+    @get_sequences_file = File.join(output_directory, 'sequences')
     @words_file = File.join(output_directory, 'words')
   end
 

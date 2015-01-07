@@ -35,8 +35,6 @@ class Sequencer
     @sequence_index.fetch(sequence, []).first
   end
 
-  private
-
   #frames all get_sequences and its corresponding words and stores it in sequence_index
   def form_sequences_from_word(word)
 

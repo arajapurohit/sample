@@ -20,7 +20,7 @@ class Sequencer
   def frame_sequence
     @dictionary.each do |word|
       next if word.length < SEQUENCE_LENGTH #chk for SEQ. LENGTH
-      form_get_sequences_from_word(word)
+      form_sequences_from_word(word)
     end
   end
 

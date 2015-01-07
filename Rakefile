@@ -19,7 +19,9 @@ end
 desc 'Run the dictionary sequencer dictionary file.'
 task :run do
   get_dictionary
-    puts "Finished seuencing and writing files"
+  sequence_dictionary
+  output_sequence_results
+  puts "Finished seuencing and writing files"
 end
 
 

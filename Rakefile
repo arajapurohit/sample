@@ -11,17 +11,12 @@ DICTIONARY_PATH   = File.join(OUTPUT_DIRECTORY, 'dictionary.txt')
 
 task :default => :run
 
-desc 'remove files from the data directory'
-task :clean do
-  FileUtils.rm_r(Dir.glob(File.join(OUTPUT_DIRECTORY, '*')))
-end
-
 desc 'Run the dictionary sequencer dictionary file.'
 task :run do
   get_dictionary
   sequence_dictionary
   output_sequence_results
-  puts "Finished seuencing and writing files"
+  puts "Finished sequencing and writing files"
 end
 
 

@@ -20,7 +20,7 @@ class Sequencer
   def frame_sequence
     @dictionary.each do |word|
       next if word.length < SEQUENCE_LENGTH #chk for SEQ. LENGTH
-      index_get_sequences_from_word(word)
+      form_get_sequences_from_word(word)
     end
   end
 
@@ -38,16 +38,16 @@ class Sequencer
   private
 
   #frames all get_sequences and its corresponding words and stores it in sequence_index
-  def index_get_sequences_from_word(word)
+  def form_sequences_from_word(word)
 
-    (0..(word.length-SEQUENCE_LENGTH)).each do |char_index|
+    (0..(word.length-SEQUENCE_LENGTH)).each do |index|
 
-      sequence = word[char_index..(char_index+SEQUENCE_LENGTH-1)]
+      sequence = word[index..(index+SEQUENCE_LENGTH-1)]
 
-      next unless sequence =~ SEQUENCE_PATTERN  # chk for seq. pattern
-      
-      @sequence_index[sequence] ||= []  # add hash for each sequence to store words it belongs
-      @sequence_index[sequence] << word # store word for sequence
+      if sequence =~ SEQUENCE_PATTERN  # chk for seq. pattern
+        @sequence_index[sequence] ||= []  # create hash for each sequence to store words it belongs
+        @sequence_index[sequence] << word # store word for sequence
+      end
     end
   end
 
